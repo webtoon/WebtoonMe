@@ -1,693 +1,704 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>WebtoonMe </title><style>
-/* cspell:disable-file */
-/* webkit printing magic: print all background colors */
-html {
-	-webkit-print-color-adjust: exact;
-}
-* {
-	box-sizing: border-box;
-	-webkit-print-color-adjust: exact;
-}
-
-html,
-body {
-	margin: 0;
-	padding: 0;
-}
-@media only screen {
-	body {
-		margin: 2em auto;
-		max-width: 900px;
-		color: rgb(55, 53, 47);
-	}
-}
-
-body {
-	line-height: 1.5;
-	white-space: pre-wrap;
-}
-
-a,
-a.visited {
-	color: inherit;
-	text-decoration: underline;
-}
-
-.pdf-relative-link-path {
-	font-size: 80%;
-	color: #444;
-}
-
-h1,
-h2,
-h3 {
-	letter-spacing: -0.01em;
-	line-height: 1.2;
-	font-weight: 600;
-	margin-bottom: 0;
-}
-
-.page-title {
-	font-size: 2.5rem;
-	font-weight: 700;
-	margin-top: 0;
-	margin-bottom: 0.75em;
-}
-
-h1 {
-	font-size: 1.875rem;
-	margin-top: 1.875rem;
-}
-
-h2 {
-	font-size: 1.5rem;
-	margin-top: 1.5rem;
-}
-
-h3 {
-	font-size: 1.25rem;
-	margin-top: 1.25rem;
-}
-
-.source {
-	border: 1px solid #ddd;
-	border-radius: 3px;
-	padding: 1.5em;
-	word-break: break-all;
-}
-
-.callout {
-	border-radius: 3px;
-	padding: 1rem;
-}
-
-figure {
-	margin: 1.25em 0;
-	page-break-inside: avoid;
-}
-
-figcaption {
-	opacity: 0.5;
-	font-size: 85%;
-	margin-top: 0.5em;
-}
-
-mark {
-	background-color: transparent;
-}
-
-.indented {
-	padding-left: 1.5em;
-}
-
-hr {
-	background: transparent;
-	display: block;
-	width: 100%;
-	height: 1px;
-	visibility: visible;
-	border: none;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
-}
-
-img {
-	max-width: 100%;
-}
-
-@media only print {
-	img {
-		max-height: 100vh;
-		object-fit: contain;
-	}
-}
-
-@page {
-	margin: 1in;
-}
-
-.collection-content {
-	font-size: 0.875rem;
-}
-
-.column-list {
-	display: flex;
-	justify-content: space-between;
-}
-
-.column {
-	padding: 0 1em;
-}
-
-.column:first-child {
-	padding-left: 0;
-}
-
-.column:last-child {
-	padding-right: 0;
-}
-
-.table_of_contents-item {
-	display: block;
-	font-size: 0.875rem;
-	line-height: 1.3;
-	padding: 0.125rem;
-}
-
-.table_of_contents-indent-1 {
-	margin-left: 1.5rem;
-}
-
-.table_of_contents-indent-2 {
-	margin-left: 3rem;
-}
-
-.table_of_contents-indent-3 {
-	margin-left: 4.5rem;
-}
-
-.table_of_contents-link {
-	text-decoration: none;
-	opacity: 0.7;
-	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
-}
-
-table,
-th,
-td {
-	border: 1px solid rgba(55, 53, 47, 0.09);
-	border-collapse: collapse;
-}
-
-table {
-	border-left: none;
-	border-right: none;
-}
-
-th,
-td {
-	font-weight: normal;
-	padding: 0.25em 0.5em;
-	line-height: 1.5;
-	min-height: 1.5em;
-	text-align: left;
-}
-
-th {
-	color: rgba(55, 53, 47, 0.6);
-}
-
-ol,
-ul {
-	margin: 0;
-	margin-block-start: 0.6em;
-	margin-block-end: 0.6em;
-}
-
-li > ol:first-child,
-li > ul:first-child {
-	margin-block-start: 0.6em;
-}
-
-ul > li {
-	list-style: disc;
-}
-
-ul.to-do-list {
-	text-indent: -1.7em;
-}
-
-ul.to-do-list > li {
-	list-style: none;
-}
-
-.to-do-children-checked {
-	text-decoration: line-through;
-	opacity: 0.375;
-}
-
-ul.toggle > li {
-	list-style: none;
-}
-
-ul {
-	padding-inline-start: 1.7em;
-}
-
-ul > li {
-	padding-left: 0.1em;
-}
-
-ol {
-	padding-inline-start: 1.6em;
-}
-
-ol > li {
-	padding-left: 0.2em;
-}
-
-.mono ol {
-	padding-inline-start: 2em;
-}
-
-.mono ol > li {
-	text-indent: -0.4em;
-}
-
-.toggle {
-	padding-inline-start: 0em;
-	list-style-type: none;
-}
-
-/* Indent toggle children */
-.toggle > li > details {
-	padding-left: 1.7em;
-}
-
-.toggle > li > details > summary {
-	margin-left: -1.1em;
-}
-
-.selected-value {
-	display: inline-block;
-	padding: 0 0.5em;
-	background: rgba(206, 205, 202, 0.5);
-	border-radius: 3px;
-	margin-right: 0.5em;
-	margin-top: 0.3em;
-	margin-bottom: 0.3em;
-	white-space: nowrap;
-}
-
-.collection-title {
-	display: inline-block;
-	margin-right: 1em;
-}
-
-.simple-table {
-	margin-top: 1em;
-	font-size: 0.875rem;
-}
-
-.simple-table-header {
-	background: rgb(247, 246, 243);
-	color: black;
-	font-weight: 500;
-}
-
-time {
-	opacity: 0.5;
-}
-
-.icon {
-	display: inline-block;
-	max-width: 1.2em;
-	max-height: 1.2em;
-	text-decoration: none;
-	vertical-align: text-bottom;
-	margin-right: 0.5em;
-}
-
-img.icon {
-	border-radius: 3px;
-}
-
-.user-icon {
-	width: 1.5em;
-	height: 1.5em;
-	border-radius: 100%;
-	margin-right: 0.5rem;
-}
-
-.user-icon-inner {
-	font-size: 0.8em;
-}
-
-.text-icon {
-	border: 1px solid #000;
-	text-align: center;
-}
-
-.page-cover-image {
-	display: block;
-	object-fit: cover;
-	width: 100%;
-	max-height: 30vh;
-}
-
-.page-header-icon {
-	font-size: 3rem;
-	margin-bottom: 1rem;
-}
-
-.page-header-icon-with-cover {
-	margin-top: -0.72em;
-	margin-left: 0.07em;
-}
-
-.page-header-icon img {
-	border-radius: 3px;
-}
-
-.link-to-page {
-	margin: 1em 0;
-	padding: 0;
-	border: none;
-	font-weight: 500;
-}
-
-p > .user {
-	opacity: 0.5;
-}
-
-td > .user,
-td > time {
-	white-space: nowrap;
-}
-
-input[type="checkbox"] {
-	transform: scale(1.5);
-	margin-right: 0.6em;
-	vertical-align: middle;
-}
-
-p {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
-}
-
-.image {
-	border: none;
-	margin: 1.5em 0;
-	padding: 0;
-	border-radius: 0;
-	text-align: center;
-}
-
-.code,
-code {
-	background: rgba(135, 131, 120, 0.15);
-	border-radius: 3px;
-	padding: 0.2em 0.4em;
-	border-radius: 3px;
-	font-size: 85%;
-	tab-size: 2;
-}
-
-code {
-	color: #eb5757;
-}
-
-.code {
-	padding: 1.5em 1em;
-}
-
-.code-wrap {
-	white-space: pre-wrap;
-	word-break: break-all;
-}
-
-.code > code {
-	background: none;
-	padding: 0;
-	font-size: 100%;
-	color: inherit;
-}
-
-blockquote {
-	font-size: 1.25em;
-	margin: 1em 0;
-	padding-left: 1em;
-	border-left: 3px solid rgb(55, 53, 47);
-}
-
-.bookmark {
-	text-decoration: none;
-	max-height: 8em;
-	padding: 0;
-	display: flex;
-	width: 100%;
-	align-items: stretch;
-}
-
-.bookmark-title {
-	font-size: 0.85em;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	height: 1.75em;
-	white-space: nowrap;
-}
-
-.bookmark-text {
-	display: flex;
-	flex-direction: column;
-}
-
-.bookmark-info {
-	flex: 4 1 180px;
-	padding: 12px 14px 14px;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
-
-.bookmark-image {
-	width: 33%;
-	flex: 1 1 180px;
-	display: block;
-	position: relative;
-	object-fit: cover;
-	border-radius: 1px;
-}
-
-.bookmark-description {
-	color: rgba(55, 53, 47, 0.6);
-	font-size: 0.75em;
-	overflow: hidden;
-	max-height: 4.5em;
-	word-break: break-word;
-}
-
-.bookmark-href {
-	font-size: 0.75em;
-	margin-top: 0.25em;
-}
-
-.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
-.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
-.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
-.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
-.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
-.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
-.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
-.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
-.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
-.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
-.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
-.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
-.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
-.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
-.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
-.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
-.highlight-default {
-	color: rgba(55, 53, 47, 1);
-}
-.highlight-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(145, 145, 142, 1);
-}
-.highlight-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(187, 132, 108, 1);
-}
-.highlight-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(215, 129, 58, 1);
-}
-.highlight-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 148, 51, 1);
-}
-.highlight-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(108, 155, 125, 1);
-}
-.highlight-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(91, 151, 189, 1);
-}
-.highlight-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(167, 130, 195, 1);
-}
-.highlight-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(205, 116, 159, 1);
-}
-.highlight-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(225, 111, 100, 1);
-}
-.highlight-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.highlight-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.highlight-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.highlight-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.highlight-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.highlight-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.highlight-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.highlight-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.highlight-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.block-color-default {
-	color: inherit;
-	fill: inherit;
-}
-.block-color-gray {
-	color: rgba(120, 119, 116, 1);
-	fill: rgba(145, 145, 142, 1);
-}
-.block-color-brown {
-	color: rgba(159, 107, 83, 1);
-	fill: rgba(187, 132, 108, 1);
-}
-.block-color-orange {
-	color: rgba(217, 115, 13, 1);
-	fill: rgba(215, 129, 58, 1);
-}
-.block-color-yellow {
-	color: rgba(203, 145, 47, 1);
-	fill: rgba(203, 148, 51, 1);
-}
-.block-color-teal {
-	color: rgba(68, 131, 97, 1);
-	fill: rgba(108, 155, 125, 1);
-}
-.block-color-blue {
-	color: rgba(51, 126, 169, 1);
-	fill: rgba(91, 151, 189, 1);
-}
-.block-color-purple {
-	color: rgba(144, 101, 176, 1);
-	fill: rgba(167, 130, 195, 1);
-}
-.block-color-pink {
-	color: rgba(193, 76, 138, 1);
-	fill: rgba(205, 116, 159, 1);
-}
-.block-color-red {
-	color: rgba(212, 76, 71, 1);
-	fill: rgba(225, 111, 100, 1);
-}
-.block-color-gray_background {
-	background: rgba(241, 241, 239, 1);
-}
-.block-color-brown_background {
-	background: rgba(244, 238, 238, 1);
-}
-.block-color-orange_background {
-	background: rgba(251, 236, 221, 1);
-}
-.block-color-yellow_background {
-	background: rgba(251, 243, 219, 1);
-}
-.block-color-teal_background {
-	background: rgba(237, 243, 236, 1);
-}
-.block-color-blue_background {
-	background: rgba(231, 243, 248, 1);
-}
-.block-color-purple_background {
-	background: rgba(244, 240, 247, 0.8);
-}
-.block-color-pink_background {
-	background: rgba(249, 238, 243, 0.8);
-}
-.block-color-red_background {
-	background: rgba(253, 235, 236, 1);
-}
-.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
-.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
-.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
-.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
-.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
-.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
-.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
-.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
-.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
-
-.checkbox {
-	display: inline-flex;
-	vertical-align: text-bottom;
-	width: 16;
-	height: 16;
-	background-size: 16px;
-	margin-left: 2px;
-	margin-right: 5px;
-}
-
-.checkbox-on {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-.checkbox-off {
-	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
-}
-
-</style></head><body></p><figure id="22e6f6d8-e79c-4744-a8a7-e7f3161be571" class="image"><a href="asset/WAI_logo_cobranding_k.png"><img style="width:500px" src="asset/WAI_logo_cobranding_k.png"/></a></figure><p id="fff1202b-abb5-446a-a54d-78146af4aa7b" class="">
-<div class="page-body"><h1 id="c4aaa070-fdf0-46a0-aef2-2e7318d561ee" class="">WebtoonMe <strong>프로젝트를 소개합니다.</strong></h1><p id="82e4eaa3-6e01-4a6e-b156-8b83fda9de3c" class="">	
-</p><p id="183e7cad-cc98-4982-8aa6-4f776fd44bb0" class="">&quot;내 사진이나 영상이 웹툰으로 변환되면 어떤 모습일까?&quot;</p><p id="eb02e0c4-be6f-4e7a-9d56-b50f17c7ee01" class="">&quot;&lt;웹툰 x AI&gt;의 재미있는 조합이 앞으로 무엇을 만들어낼 수 있을까?&quot;</p><p id="a8e7aa58-7e4f-47ea-bdbf-33be43529e4b" class="">
-</p><figure id="2b009f6b-4ac6-44e7-9450-5c7b9e7a41c8" class="image"><a href="asset/IMG_1.png"><img style="width:1629px" src="asset/IMG_1.png"/></a><figcaption>[그림] 다양한 웹툰 캐릭터로 변환되는 야옹이 작가님의 모습</figcaption></figure><div id="8c3db945-91a7-4ea4-9d73-12fe9bd876cc" class="column-list"><div id="c4b22222-e0b4-45ba-9471-67a597a7a2d6" style="width:70%" class="column"><figure id="9519950d-947c-47b2-bb84-78da737d10a1" class="image"><a href="asset/IMG_2.png"><img style="width:700px" src="asset/IMG_2.png"/></a><figcaption>[그림] 다양한 웹툰 캐릭터로 변환된 예시</figcaption></figure></div><div id="6bec1ce7-0841-44be-9d6f-fd7a7a2f2422" style="width:30%" class="column"><figure id="3bc9abd3-cd55-4148-82e0-0f2bff177d9c" class="image"><a href="asset/IMG_3.png"><img style="width:350px" src="asset/IMG_3.png"/></a><figcaption>[그림] 여신강림 임주경으로 변환된 예시</figcaption></figure></div></div><p id="80145fe2-35d8-40db-93b5-c61bead6f9e6" class="">
-</p><p id="a2c1489a-b686-4445-8306-5e6192fbdf15" class="">네이버 웹툰은 업계 선두 주자로서 양질의 IP 콘텐츠를 발굴하고 있으며 그뿐만 아니라 독자의 몰입감을 높일 수 있는 최신 기술을 끊임없이 연구 개발하고 있습니다. 특히 저희 WEBTOON AI 조직은 &#x27;딥러닝&#x27; 기술을 활용하여 웹툰 독자의 즐거움을 극대화하고 창작자를 돕는 다수의 프로젝트를 진행 중인데요, 지난달에는 몇 번의 클릭만으로 스케치에 자연스러운 색을 입혀주는 &lt;<a href="https://ai.webtoons.com/painter">웹툰 AI PAINTER</a>&gt; 베타 버전을 공개하여 많은 관심(<a href="https://zdnet.co.kr/view/?no=20211027094527">관련 기사</a>)을 받았습니다. 이처럼 조직 구성원 모두 &lt;웹툰 X AI&gt;라는, 일반인에게는 아직 낯설지만 흥미로운 조합을 즐겁게 연구하며 기존에 누구도 생각하지 못했던 결과물을 만들어 나가고 있습니다.</p><p id="458df7e4-68c2-470f-b41e-37f0a90789f4" class="">
-</p><figure id="22e6f6d8-e79c-4744-a8a7-e7f3161be571" class="image"><a href="asset/IMG_4.png"><img style="width:500px" src="asset/IMG_4.png"/></a><figcaption>[그림] 많은 관심과 사랑을 받고 있는 웹툰 AI PAINTER </figcaption></figure><p id="fff1202b-abb5-446a-a54d-78146af4aa7b" class="">
-</p><p id="477e4691-b66b-49d6-a18d-0626c8bc17db" class="">네이버 웹툰은 과거에 인터랙티브 웹툰 &lt;마주쳤다&gt;에서, 독자가 찍은 셀카를 웹툰 화풍으로 자연스럽게 변환해 웹툰에 삽입하는 기술을 선보였습니다. 당시 단순히 웹툰을 보는 것이 아니라 직접 웹툰 이야기 전개에 참여할 수 있다는 점에서 많은 독자로부터 좋은 반응을 얻었습니다.(<a href="https://m.khan.co.kr/people/people-general/article/201801022048005#c2b">관련 기사</a>)</p><p id="e259c4a2-221e-4993-a087-50597557c2f5" class="">
-</p><p id="1ced0e8c-b4f5-4308-8554-c835aef69642" class="">&lt;WebtoonMe 프로젝트&gt;는 &lt;마주쳤다&gt;에서 활용된 변환 기술에서 한발 더 나아가 &#x27;나의 정체성을 유지하면서 더욱 웹툰스러운 변환&#x27;을 목표로 하고 있습니다. 이 글에서는 &lt;WebtoonMe 프로젝트&gt;에 활용된 기술 소개와 함께 다양하고 재미있는 결과물을 공유하고자 합니다. </p><p id="41f2daca-de92-4dd5-b5c7-3c32508037da" class="">
-</p><figure id="b183f76b-752b-4c87-93f1-6624244b3f7e" class="image"><a href="asset/IMG_5.png"><img style="width:500px" src="asset/IMG_5.png"/></a><figcaption>[그림] 업계 최초의 인터랙티브 웹툰 &lt;마주쳤다&gt; </figcaption></figure><p id="3b065dec-e584-47db-a5a6-77161bba1a53" class="">
-</p><p id="1fffceaf-b4ad-45ee-b230-3d98f1bca113" class="">&#x27;내 사진을 웹툰으로 바꾸는 기술&#x27;을 생각했을 때 어떤 것이 가장 궁금하신가요? 많은 분들이 &#x27;내 얼굴이 웹툰 캐릭터로 어떻게 변환될 수 있을까?&#x27;를 가장 궁금해하실 텐데요, 저희도 같은 호기심으로 딥러닝 기반 &#x27;얼굴 변환&#x27; 기술 개발을 시작하여 본 프로젝트를 준비하게 되었습니다. </p><p id="5408eab7-319f-4da0-838e-2a8241da7345" class="">여러 시행착오 끝에 딥러닝 기반의 얼굴 변환 기술이 어느 정도 완성도를 보였고, 보다 큰 즐거움을 전달하기 위해 얼굴뿐만 아니라 배경을 포함한 사진 전체를 변환하는 방향으로 프로젝트를 확장했습니다. 하지만 기존 얼굴 변환과는 달리 예상치 못한 문제에 부딪쳤는데요, 사진에 존재하는 다양한 사물(얼굴, 신체 부위, 배경 등)이 각각 필요로 하는 &#x27;스타일&#x27; 특성이 모두 달랐기 때문에 이를 유기적으로 고려하지 못한 변환이 어색한 결과를 보인 것입니다.</p><p id="0bba332b-0722-4cb6-bd40-1899e5d6e8af" class="">저희는 데이터를 분석하여 웹툰 데이터셋에는 일반적으로 딥러닝 연구에 쓰이는 데이터셋과 달리 사물마다 고유의 &#x27;스타일&#x27;이라는 속성이 있다는 결론을 도출했고, 실제 작품에서 각각의 사물이 어떤 스타일로 제작되는지 이해하기 위해 &#x27;웹툰 제작 과정&#x27;을 보다 심층적으로 배웠습니다. </p><div id="568b966a-4b55-4ff2-86e6-02200322f02b" class="column-list"><div id="400775e4-2364-4ec1-9761-dda4a9b94193" style="width:37.5%" class="column"><figure id="157c333d-a880-4947-9abd-5b2e6fa69052" class="image"><a href="asset/IMG_6.png"><img style="width:240px" src="asset/IMG_6.png"/></a><figcaption>[그림] &#x27;외모지상주의&#x27; 박태준 작가님 인터뷰</figcaption></figure></div><div id="a3c5e98e-8d2c-4d5d-887b-cac17b413b51" style="width:62.5%" class="column"><figure id="46310875-0110-43e7-a067-3d76292a7085" class="image"><a href="asset/IMG_7.png"><img style="width:500px" src="asset/IMG_7.png"/></a><figcaption>[그림] &quot;유미의 세포들&quot; 이동건 작가님 인터뷰</figcaption></figure></div></div><p id="2f7927c1-5b09-40ac-a19c-3234b6efda49" class="">WEBTOON AI 조직에서 연구를 할 때 가장 큰 장점 중 하나는 &#x27;AI 기술에 관심이 많은 유명 작가님&#x27;들을 직접 인터뷰할 수 있는 특별한 기회가 주어진다는 것입니다. 다수의 작가님을 인터뷰하여 &#x27;전경(얼굴 등)&#x27;과 &#x27;배경&#x27;이 서로 다른 툴과 방법으로 제작된다는 것은 물론, 유기적인 스타일 부여를 위해 여러 고려 사항이 존재한다는 것을 알게 되었고, 또한 같은 컷 안에서 자연스럽게 조화될 수 있도록 리터칭 기법이 필요하다는 것도 알 수 있었습니다.</p><p id="8129f9c1-c4a5-47c9-9abb-164a278f626d" class="">저희는 여기서 얻은 인사이트를 다음과 같이 활용했습니다. 우선 얼굴, 신체, 인공물, 자연물 등 다양한 객체로 이루어진 웹툰 데이터셋을 구축하고 다수의 딥러닝 모델을 생성해 전경과 배경의 스타일 유사도를 개선해 나갔습니다. 그리고 작가님들의 리터칭 기법을 모사할 수 있는 여러 후처리 알고리즘을 적용하여 보다 자연스러운 결과가 나오도록 성능 개선을 수행했습니다.</p><p id="618c775c-be55-4e56-a23d-989796cdad9a" class="">이를 통해 지금까지는 불가능했던 &#x27;웹툰과 가까운 변환&#x27;은 물론 다양한 &#x27;캐릭터 X 배경 스타일 조합&#x27;을 통해 재미있는 결과를 많이 만들어낼 수 있었는데요, 저희의 작업 프로세스를 그림으로 정리하면 아래와 같습니다.</p><p id="be8d0768-2558-4df1-a685-b8b68faaa1de" class="">
-</p><figure id="a6071293-0090-4772-ad3d-cccd1420180f" class="image"><a href="asset/IMG_8.png"><img style="width:2584px" src="asset/IMG_8.png"/></a></figure><p id="3936de0d-f2b2-4e45-bb36-6de8997f4e14" class="">
-</p><p id="bb9d1734-3acf-4c21-92ea-5596c2607526" class="">이제 변환 결과를 같이 보실까요? 너무 재미있는 결과가 많아 어떤 영상을 보여드릴지 고민을 많이 했는데요, 데모 영상을 고르는 회의도 너무 즐거울 정도였습니다.(결과를 게시할 수 있도록 허가해주신 콘텐츠 원작자 분들께 감사드립니다.)</p>
-
-
-
-<div id="19a8cbe8-1f82-4eab-b6dc-730d85be512f" class="column-list"><div id="99d2ef42-854b-4d14-8901-ad3bbdf606e7" style="width:50%" class="column"><div class="source"><video controls="" loop="" style="width:375px"><source src="asset/VIDEO_1.mp4" type="video/mp4"/></video></div></div>
-<div id="cfd992ce-78a6-4be6-bea3-fb6b899dd36b" style="width:50%" class="column"><div class="source"><video controls="" loop="" style="width:375px"><source src="asset/VIDEO_2.mp4" type="video/mp4"/></video></div></div></div>
-<div id="19a8cbe8-1f82-4eab-b6dc-730d85be512f" class="column-list"><div id="99d2ef42-854b-4d14-8901-ad3bbdf606e7" style="width:50%" class="column"><div class="source"><video controls="" loop="" style="width:375px"><source src="asset/VIDEO_3.mp4" type="video/mp4"/></video></div></div>
-<div id="cfd992ce-78a6-4be6-bea3-fb6b899dd36b" style="width:50%" class="column"><div class="source"><video controls="" loop="" style="width:375px"><source src="asset/VIDEO_4.mp4" type="video/mp4"/></video></div></div></div>
-<figure id="6d9a2158-15f6-47c6-9ffa-58eb9a8c24d3"><div class="source"><video controls="" loop="" style="width:850px"><source src="asset/VIDEO_5.mp4" type="video/mp4"/></video></div></figure>
-<p id="5386cd00-f0a0-42d3-99f9-14a7f61d1dfb" class=""></p>
-
-<p id="31ef65ff-e4d2-4fce-9a37-628268851f95" class="">지금까지 &lt;WebtoonMe 프로젝트&gt;를 간략하게 설명해드렸습니다. 그렇다면 독자분들은 언제 그리고 어떻게 이 기술을 접할 수 있을지 궁금하실 텐데요, 이와 관련하여 진행 중인 재미있는 기획이 많습니다. 프로젝트에서 확보한 변환 기술은 앞서 언급한 것처럼 과거 &lt;마주쳤다&gt;와 같이 독자의 몰입감을 극대화할 수 있는 기술로 적용 가능한 것은 물론이고요, 웹툰 창작 활동에 도움을 주는 창작 도구로도 활용할 수 있도록 고도화를 진행하고 있습니다. 변환 기술이 창작에는 어떻게 쓰일 수 있을까요?</p><p id="8b361dfc-d6ba-4331-b9a4-28ba590b14ea" class="">
-</p><p id="431b8500-ca17-4a5c-bd4b-75f187b8b92a" class="">최근 네이버 웹툰은 업계 선두 주자로서 웹툰 창작 생태계를 확장하기 위해 다양한 노력을 하고 있습니다. 앞서 말씀드린 &lt;웹툰 AI PAINTER&gt; 베타 서비스를 시작으로, 그림을 못 그리더라도 보다 쉽게 웹툰을 창작할 수 있는 기술, 즉 &quot;오토 드로잉&quot;(<a href="https://www.mk.co.kr/news/it/view/2021/10/993693/">관련 기사</a>) 기술을 집중적으로 개발하는 것도 그중 하나입니다. &lt;WebtoonMe 프로젝트&gt;에서 개발하는 변환 기술 역시 오토 드로잉 기술의 일부로, 보다 쉽고 빠르게 웹툰을 제작할 수 있는 기술로 활용될 예정입니다. 즉, 내가 원하는 인물과 배경 사진을 자연스럽게 나만의 웹툰으로 만들 수 있는 기술, 또 다양한 창작 영감을 제공하는 변환 기술이 웹툰 창작에 기여할 수 있기를 기대하고 있습니다.</p><p id="e2bd4880-7422-4752-a3ba-2477beeffa25" class="">
-</p><p id="e340a2fa-1337-427a-a7e0-2787a8222770" class="">감사합니다.</p><p id="6f74db1f-ca73-4a23-8695-4f40917c6556" class=""> </p><p id="47cf02a5-d1c9-46ad-855c-10c9d71cc955" class="">
-</p><p id="bbf401e7-3f18-471e-b017-66e83ae21f6a" class="">
-</p><p id="29fd2599-2c12-4609-aab6-3c2f818c941d" class="">
-</p><p id="255a1850-5f7f-44fb-ad67-4a112c3a751a" class="">
-</p><p id="3245c7c2-b488-4c98-afd6-90dbf457374a" class=""> </p><p id="33603af7-dab1-46da-88b6-795864065ff7" class="">
-</p><p id="6fcaa310-86f1-4f8f-8925-ea4d1236fe3e" class="">
-</p><p id="e4fe592b-c025-4b9f-bdea-c7dc32b446a1" class="">
-</p><p id="900e7b3a-e58c-409b-abf2-615d110b4a6f" class="">
-</p><p id="09ccce19-d092-4e66-86a7-b97653dc9ae3" class="">
-</p><p id="6a74a546-443a-4e10-9be1-1959860e0f41" class="">
-</p><p id="813cb1d6-de0f-4a6b-aea3-8ad815f83481" class=""> </p><p id="c9d7888f-b5a9-494e-aabc-d31c84b2f1fd" class="">
-</p><p id="bfb522dd-a2ae-401c-8e50-2833b9935336" class="">
-</p><p id="123e6f80-1560-423c-84fc-d0526a58e93b" class="">
-</p></div></article></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>WebtoonMe</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+	<style>
+		/* cspell:disable-file */
+		/* webkit printing magic: print all background colors */
+		html {
+			-webkit-print-color-adjust: exact;
+		}
+		* {
+			box-sizing: border-box;
+			-webkit-print-color-adjust: exact;
+		}
+
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+		}
+		@media only screen {
+			body {
+				margin: 2em auto;
+				max-width: 900px;
+				color: rgb(55, 53, 47);
+			}
+		}
+
+		body {
+			line-height: 1.5;
+			white-space: pre-wrap;
+		}
+
+		a,
+		a.visited {
+			color: inherit;
+			text-decoration: underline;
+		}
+
+		.pdf-relative-link-path {
+			font-size: 80%;
+			color: #444;
+		}
+
+		h1,
+		h2,
+		h3 {
+			letter-spacing: -0.01em;
+			line-height: 1.2;
+			font-weight: 600;
+			margin-bottom: 0;
+		}
+
+		.page-title {
+			font-size: 2.5rem;
+			font-weight: 700;
+			margin-top: 0;
+			margin-bottom: 0.75em;
+		}
+
+		h1 {
+			font-size: 1.875rem;
+			margin-top: 1.875rem;
+		}
+
+		h2 {
+			font-size: 1.5rem;
+			margin-top: 1.5rem;
+		}
+
+		h3 {
+			font-size: 1.25rem;
+			margin-top: 1.25rem;
+		}
+
+		.source {
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			padding: 1.5em;
+			word-break: break-all;
+		}
+
+		.callout {
+			border-radius: 3px;
+			padding: 1rem;
+		}
+
+		figure {
+			margin: 1.25em 0;
+			page-break-inside: avoid;
+		}
+
+		figcaption {
+			opacity: 0.5;
+			font-size: 85%;
+			margin-top: 0.5em;
+		}
+
+		mark {
+			background-color: transparent;
+		}
+
+		.indented {
+			padding-left: 1.5em;
+		}
+
+		hr {
+			background: transparent;
+			display: block;
+			width: 100%;
+			height: 1px;
+			visibility: visible;
+			border: none;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		@media only print {
+			img {
+				max-height: 100vh;
+				object-fit: contain;
+			}
+		}
+
+		@page {
+			margin: 1in;
+		}
+
+		.collection-content {
+			font-size: 0.875rem;
+		}
+
+		.column-list {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.column {
+			padding: 0 1em;
+		}
+
+		.column:first-child {
+			padding-left: 0;
+		}
+
+		.column:last-child {
+			padding-right: 0;
+		}
+
+		.table_of_contents-item {
+			display: block;
+			font-size: 0.875rem;
+			line-height: 1.3;
+			padding: 0.125rem;
+		}
+
+		.table_of_contents-indent-1 {
+			margin-left: 1.5rem;
+		}
+
+		.table_of_contents-indent-2 {
+			margin-left: 3rem;
+		}
+
+		.table_of_contents-indent-3 {
+			margin-left: 4.5rem;
+		}
+
+		.table_of_contents-link {
+			text-decoration: none;
+			opacity: 0.7;
+			border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+		}
+
+		table,
+		th,
+		td {
+			border: 1px solid rgba(55, 53, 47, 0.09);
+			border-collapse: collapse;
+		}
+
+		table {
+			border-left: none;
+			border-right: none;
+		}
+
+		th,
+		td {
+			font-weight: normal;
+			padding: 0.25em 0.5em;
+			line-height: 1.5;
+			min-height: 1.5em;
+			text-align: left;
+		}
+
+		th {
+			color: rgba(55, 53, 47, 0.6);
+		}
+
+		ol,
+		ul {
+			margin: 0;
+			margin-block-start: 0.6em;
+			margin-block-end: 0.6em;
+		}
+
+		li > ol:first-child,
+		li > ul:first-child {
+			margin-block-start: 0.6em;
+		}
+
+		ul > li {
+			list-style: disc;
+		}
+
+		ul.to-do-list {
+			text-indent: -1.7em;
+		}
+
+		ul.to-do-list > li {
+			list-style: none;
+		}
+
+		.to-do-children-checked {
+			text-decoration: line-through;
+			opacity: 0.375;
+		}
+
+		ul.toggle > li {
+			list-style: none;
+		}
+
+		ul {
+			padding-inline-start: 1.7em;
+		}
+
+		ul > li {
+			padding-left: 0.1em;
+		}
+
+		ol {
+			padding-inline-start: 1.6em;
+		}
+
+		ol > li {
+			padding-left: 0.2em;
+		}
+
+		.mono ol {
+			padding-inline-start: 2em;
+		}
+
+		.mono ol > li {
+			text-indent: -0.4em;
+		}
+
+		.toggle {
+			padding-inline-start: 0em;
+			list-style-type: none;
+		}
+
+		/* Indent toggle children */
+		.toggle > li > details {
+			padding-left: 1.7em;
+		}
+
+		.toggle > li > details > summary {
+			margin-left: -1.1em;
+		}
+
+		.selected-value {
+			display: inline-block;
+			padding: 0 0.5em;
+			background: rgba(206, 205, 202, 0.5);
+			border-radius: 3px;
+			margin-right: 0.5em;
+			margin-top: 0.3em;
+			margin-bottom: 0.3em;
+			white-space: nowrap;
+		}
+
+		.collection-title {
+			display: inline-block;
+			margin-right: 1em;
+		}
+
+		.simple-table {
+			margin-top: 1em;
+			font-size: 0.875rem;
+		}
+
+		.simple-table-header {
+			background: rgb(247, 246, 243);
+			color: black;
+			font-weight: 500;
+		}
+
+		time {
+			opacity: 0.5;
+		}
+
+		.icon {
+			display: inline-block;
+			max-width: 1.2em;
+			max-height: 1.2em;
+			text-decoration: none;
+			vertical-align: text-bottom;
+			margin-right: 0.5em;
+		}
+
+		img.icon {
+			border-radius: 3px;
+		}
+
+		.user-icon {
+			width: 1.5em;
+			height: 1.5em;
+			border-radius: 100%;
+			margin-right: 0.5rem;
+		}
+
+		.user-icon-inner {
+			font-size: 0.8em;
+		}
+
+		.text-icon {
+			border: 1px solid #000;
+			text-align: center;
+		}
+
+		.page-cover-image {
+			display: block;
+			object-fit: cover;
+			width: 100%;
+			max-height: 30vh;
+		}
+
+		.page-header-icon {
+			font-size: 3rem;
+			margin-bottom: 1rem;
+		}
+
+		.page-header-icon-with-cover {
+			margin-top: -0.72em;
+			margin-left: 0.07em;
+		}
+
+		.page-header-icon img {
+			border-radius: 3px;
+		}
+
+		.link-to-page {
+			margin: 1em 0;
+			padding: 0;
+			border: none;
+			font-weight: 500;
+		}
+
+		p > .user {
+			opacity: 0.5;
+		}
+
+		td > .user,
+		td > time {
+			white-space: nowrap;
+		}
+
+		input[type="checkbox"] {
+			transform: scale(1.5);
+			margin-right: 0.6em;
+			vertical-align: middle;
+		}
+
+		p {
+			margin-top: 0.5em;
+			margin-bottom: 0.5em;
+		}
+
+		.image {
+			border: none;
+			margin: 1.5em 0;
+			padding: 0;
+			border-radius: 0;
+			text-align: center;
+		}
+
+		.code,
+		code {
+			background: rgba(135, 131, 120, 0.15);
+			border-radius: 3px;
+			padding: 0.2em 0.4em;
+			border-radius: 3px;
+			font-size: 85%;
+			tab-size: 2;
+		}
+
+		code {
+			color: #eb5757;
+		}
+
+		.code {
+			padding: 1.5em 1em;
+		}
+
+		.code-wrap {
+			white-space: pre-wrap;
+			word-break: break-all;
+		}
+
+		.code > code {
+			background: none;
+			padding: 0;
+			font-size: 100%;
+			color: inherit;
+		}
+
+		blockquote {
+			font-size: 1.25em;
+			margin: 1em 0;
+			padding-left: 1em;
+			border-left: 3px solid rgb(55, 53, 47);
+		}
+
+		.bookmark {
+			text-decoration: none;
+			max-height: 8em;
+			padding: 0;
+			display: flex;
+			width: 100%;
+			align-items: stretch;
+		}
+
+		.bookmark-title {
+			font-size: 0.85em;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			height: 1.75em;
+			white-space: nowrap;
+		}
+
+		.bookmark-text {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.bookmark-info {
+			flex: 4 1 180px;
+			padding: 12px 14px 14px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.bookmark-image {
+			width: 33%;
+			flex: 1 1 180px;
+			display: block;
+			position: relative;
+			object-fit: cover;
+			border-radius: 1px;
+		}
+
+		.bookmark-description {
+			color: rgba(55, 53, 47, 0.6);
+			font-size: 0.75em;
+			overflow: hidden;
+			max-height: 4.5em;
+			word-break: break-word;
+		}
+
+		.bookmark-href {
+			font-size: 0.75em;
+			margin-top: 0.25em;
+		}
+
+		.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+		.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+		.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+		.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+		.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+		.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+		.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+		.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+		.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+		.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+		.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+		.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+		.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+		.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+		.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+		.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+		.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+		.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+		.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+		.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+		.highlight-default {
+			color: rgba(55, 53, 47, 1);
+		}
+		.highlight-gray {
+			color: rgba(120, 119, 116, 1);
+			fill: rgba(145, 145, 142, 1);
+		}
+		.highlight-brown {
+			color: rgba(159, 107, 83, 1);
+			fill: rgba(187, 132, 108, 1);
+		}
+		.highlight-orange {
+			color: rgba(217, 115, 13, 1);
+			fill: rgba(215, 129, 58, 1);
+		}
+		.highlight-yellow {
+			color: rgba(203, 145, 47, 1);
+			fill: rgba(203, 148, 51, 1);
+		}
+		.highlight-teal {
+			color: rgba(68, 131, 97, 1);
+			fill: rgba(108, 155, 125, 1);
+		}
+		.highlight-blue {
+			color: rgba(51, 126, 169, 1);
+			fill: rgba(91, 151, 189, 1);
+		}
+		.highlight-purple {
+			color: rgba(144, 101, 176, 1);
+			fill: rgba(167, 130, 195, 1);
+		}
+		.highlight-pink {
+			color: rgba(193, 76, 138, 1);
+			fill: rgba(205, 116, 159, 1);
+		}
+		.highlight-red {
+			color: rgba(212, 76, 71, 1);
+			fill: rgba(225, 111, 100, 1);
+		}
+		.highlight-gray_background {
+			background: rgba(241, 241, 239, 1);
+		}
+		.highlight-brown_background {
+			background: rgba(244, 238, 238, 1);
+		}
+		.highlight-orange_background {
+			background: rgba(251, 236, 221, 1);
+		}
+		.highlight-yellow_background {
+			background: rgba(251, 243, 219, 1);
+		}
+		.highlight-teal_background {
+			background: rgba(237, 243, 236, 1);
+		}
+		.highlight-blue_background {
+			background: rgba(231, 243, 248, 1);
+		}
+		.highlight-purple_background {
+			background: rgba(244, 240, 247, 0.8);
+		}
+		.highlight-pink_background {
+			background: rgba(249, 238, 243, 0.8);
+		}
+		.highlight-red_background {
+			background: rgba(253, 235, 236, 1);
+		}
+		.block-color-default {
+			color: inherit;
+			fill: inherit;
+		}
+		.block-color-gray {
+			color: rgba(120, 119, 116, 1);
+			fill: rgba(145, 145, 142, 1);
+		}
+		.block-color-brown {
+			color: rgba(159, 107, 83, 1);
+			fill: rgba(187, 132, 108, 1);
+		}
+		.block-color-orange {
+			color: rgba(217, 115, 13, 1);
+			fill: rgba(215, 129, 58, 1);
+		}
+		.block-color-yellow {
+			color: rgba(203, 145, 47, 1);
+			fill: rgba(203, 148, 51, 1);
+		}
+		.block-color-teal {
+			color: rgba(68, 131, 97, 1);
+			fill: rgba(108, 155, 125, 1);
+		}
+		.block-color-blue {
+			color: rgba(51, 126, 169, 1);
+			fill: rgba(91, 151, 189, 1);
+		}
+		.block-color-purple {
+			color: rgba(144, 101, 176, 1);
+			fill: rgba(167, 130, 195, 1);
+		}
+		.block-color-pink {
+			color: rgba(193, 76, 138, 1);
+			fill: rgba(205, 116, 159, 1);
+		}
+		.block-color-red {
+			color: rgba(212, 76, 71, 1);
+			fill: rgba(225, 111, 100, 1);
+		}
+		.block-color-gray_background {
+			background: rgba(241, 241, 239, 1);
+		}
+		.block-color-brown_background {
+			background: rgba(244, 238, 238, 1);
+		}
+		.block-color-orange_background {
+			background: rgba(251, 236, 221, 1);
+		}
+		.block-color-yellow_background {
+			background: rgba(251, 243, 219, 1);
+		}
+		.block-color-teal_background {
+			background: rgba(237, 243, 236, 1);
+		}
+		.block-color-blue_background {
+			background: rgba(231, 243, 248, 1);
+		}
+		.block-color-purple_background {
+			background: rgba(244, 240, 247, 0.8);
+		}
+		.block-color-pink_background {
+			background: rgba(249, 238, 243, 0.8);
+		}
+		.block-color-red_background {
+			background: rgba(253, 235, 236, 1);
+		}
+		.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+		.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+		.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+		.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+		.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+		.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+		.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+		.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+		.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+		.checkbox {
+			display: inline-flex;
+			vertical-align: text-bottom;
+			width: 16;
+			height: 16;
+			background-size: 16px;
+			margin-left: 2px;
+			margin-right: 5px;
+		}
+
+		.checkbox-on {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+
+		.checkbox-off {
+			background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+		}
+		.img-fluid {
+			max-width: 50%;
+			height: auto;
+		  }
+	</style>
+</head>
+<header>
+	</p><figure id="22e6f6d8-e79c-4744-a8a7-e7f3161be571" class="image"><a href="asset/WAI_logo_cobranding_k.png"><img style="width:70%" src="asset/WAI_logo_cobranding_k.png"/></a></figure>
+</header>
+<body>
+<div class="container">
+	<div class="page-body"><h2 id="c4aaa070-fdf0-46a0-aef2-2e7318d561ee" class="">WebtoonMe 프로젝트를 소개합니다.</h2>	
+	</p><p id="183e7cad-cc98-4982-8aa6-4f776fd44bb0" class="">&quot;내 사진이나 영상이 웹툰으로 변환되면 어떤 모습일까?&quot;</p><p id="eb02e0c4-be6f-4e7a-9d56-b50f17c7ee01" class="">&quot;&lt;웹툰 x AI&gt;의 재미있는 조합이 앞으로 무엇을 만들어낼 수 있을까?&quot;</p>
+	<div class="row">
+		<div class="col-md-12"><figure id="2b009f6b-4ac6-44e7-9450-5c7b9e7a41c8" class="image"><a href="asset/IMG_1.png"><img style="width:100%" src="asset/IMG_0.PNG"/></a><figcaption>다양한 웹툰 캐릭터로 변환 예시</figcaption></div>
+	</div>
+	<p id="a2c1489a-b686-4445-8306-5e6192fbdf15" class="">네이버 웹툰은 업계 선두 주자로서 양질의 IP 콘텐츠를 발굴하고 있으며 그뿐만 아니라 독자의 몰입감을 높일 수 있는 최신 기술을 끊임없이 연구 개발하고 있습니다. 특히 저희 WEBTOON AI 조직은 &#x27;딥러닝&#x27; 기술을 활용하여 웹툰 독자의 즐거움을 극대화하고 창작자를 돕는 다수의 프로젝트를 진행 중인데요, 지난달에는 몇 번의 클릭만으로 스케치에 자연스러운 색을 입혀주는 &lt;<a href="https://ai.webtoons.com/painter">웹툰 AI PAINTER</a>&gt; 베타 버전을 공개하여 많은 관심(<a href="https://zdnet.co.kr/view/?no=20211027094527">관련 기사</a>)을 받았습니다. 이처럼 조직 구성원 모두 &lt;웹툰 X AI&gt;라는, 일반인에게는 아직 낯설지만 흥미로운 조합을 즐겁게 연구하며 기존에 누구도 생각하지 못했던 결과물을 만들어 나가고 있습니다.</p><p id="458df7e4-68c2-470f-b41e-37f0a90789f4" class="">
+    <div class="col-md-12"><figure id="22e6f6d8-e79c-4744-a8a7-e7f3161be571" class="image"><a href="asset/IMG_4.png"><img style="width:80%" src="asset/IMG_4.png"/></a><figcaption>많은 관심과 사랑을 받고 있는 웹툰 AI PAINTER </figcaption></figure></div>
+    <p id="477e4691-b66b-49d6-a18d-0626c8bc17db" class="">네이버 웹툰은 과거에 인터랙티브 웹툰 &lt;마주쳤다&gt;에서, 독자가 찍은 셀카를 웹툰 화풍으로 자연스럽게 변환해 웹툰에 삽입하는 기술을 선보였습니다. 당시 단순히 웹툰을 보는 것이 아니라 직접 웹툰 이야기 전개에 참여할 수 있다는 점에서 많은 독자로부터 좋은 반응을 얻었습니다.(<a href="https://m.khan.co.kr/people/people-general/article/201801022048005#c2b">관련 기사</a>)</p><p id="1ced0e8c-b4f5-4308-8554-c835aef69642" class="">&lt;WebtoonMe 프로젝트&gt;는 &lt;마주쳤다&gt;에서 활용된 변환 기술에서 한발 더 나아가 &#x27;나의 정체성을 유지하면서 더욱 웹툰스러운 변환&#x27;을 목표로 하고 있습니다. 이 글에서는 &lt;WebtoonMe 프로젝트&gt;에 활용된 기술 소개와 함께 다양하고 재미있는 결과물을 공유하고자 합니다. </p>
+    <div class="col-md-12"><figure id="b183f76b-752b-4c87-93f1-6624244b3f7e" class="image"><a href="asset/IMG_5.png"><img style="width:80%" src="asset/IMG_5.png"/></a><figcaption>업계 최초의 인터랙티브 웹툰 &lt;마주쳤다&gt; </figcaption></figure></div>
+    </p><p id="1fffceaf-b4ad-45ee-b230-3d98f1bca113" class="">&#x27;내 사진을 웹툰으로 바꾸는 기술&#x27;을 생각했을 때 어떤 것이 가장 궁금하신가요? 많은 분들이 &#x27;내 얼굴이 웹툰 캐릭터로 어떻게 변환될 수 있을까?&#x27;를 가장 궁금해하실 텐데요, 저희도 같은 호기심으로 딥러닝 기반 &#x27;얼굴 변환&#x27; 기술 개발을 시작하여 본 프로젝트를 준비하게 되었습니다. </p><p id="5408eab7-319f-4da0-838e-2a8241da7345" class="">여러 시행착오 끝에 딥러닝 기반의 얼굴 변환 기술이 어느 정도 완성도를 보였고, 보다 큰 즐거움을 전달하기 위해 얼굴뿐만 아니라 배경을 포함한 사진 전체를 변환하는 방향으로 프로젝트를 확장했습니다. 하지만 기존 얼굴 변환과는 달리 예상치 못한 문제에 부딪쳤는데요, 사진에 존재하는 다양한 사물(얼굴, 신체 부위, 배경 등)이 각각 필요로 하는 &#x27;스타일&#x27; 특성이 모두 달랐기 때문에 이를 유기적으로 고려하지 못한 변환이 어색한 결과를 보인 것입니다.</p><p id="0bba332b-0722-4cb6-bd40-1899e5d6e8af" class="">저희는 데이터를 분석하여 웹툰 데이터셋에는 일반적으로 딥러닝 연구에 쓰이는 데이터셋과 달리 사물마다 고유의 &#x27;스타일&#x27;이라는 속성이 있다는 결론을 도출했고, 실제 작품에서 각각의 사물이 어떤 스타일로 제작되는지 이해하기 위해 &#x27;웹툰 제작 과정&#x27;을 보다 심층적으로 배웠습니다. </p>
+    <div class="row">
+        <div class="col-md-4"><figure id="157c333d-a880-4947-9abd-5b2e6fa69052" class="image"><a href="asset/IMG_6.png"><img style="width:80%" src="asset/IMG_6.png"/></a><figcaption>&#x27;외모지상주의&#x27; 박태준 작가님 인터뷰</figcaption></figure></div>
+        <div class="col-md-8"><figure id="46310875-0110-43e7-a067-3d76292a7085" class="image"><a href="asset/IMG_7.png"><img style="width:80%" src="asset/IMG_7.png"/></a><figcaption>&#x27;유미의 세포들&#x27; 이동건 작가님 인터뷰</figcaption></figure></div>
+    </div>
+    <p id="2f7927c1-5b09-40ac-a19c-3234b6efda49" class="">WEBTOON AI 조직에서 연구를 할 때 가장 큰 장점 중 하나는 &#x27;AI 기술에 관심이 많은 유명 작가님&#x27;들을 직접 인터뷰할 수 있는 특별한 기회가 주어진다는 것입니다. 다수의 작가님을 인터뷰하여 &#x27;전경(얼굴 등)&#x27;과 &#x27;배경&#x27;이 서로 다른 툴과 방법으로 제작된다는 것은 물론, 유기적인 스타일 부여를 위해 여러 고려 사항이 존재한다는 것을 알게 되었고, 또한 같은 컷 안에서 자연스럽게 조화될 수 있도록 리터칭 기법이 필요하다는 것도 알 수 있었습니다.</p><p id="8129f9c1-c4a5-47c9-9abb-164a278f626d" class="">저희는 여기서 얻은 인사이트를 다음과 같이 활용했습니다. 우선 얼굴, 신체, 인공물, 자연물 등 다양한 객체로 이루어진 웹툰 데이터셋을 구축하고 다수의 딥러닝 모델을 생성해 전경과 배경의 스타일 유사도를 개선해 나갔습니다. 그리고 작가님들의 리터칭 기법을 모사할 수 있는 여러 후처리 알고리즘을 적용하여 보다 자연스러운 결과가 나오도록 성능 개선을 수행했습니다.</p><p id="618c775c-be55-4e56-a23d-989796cdad9a" class="">이를 통해 지금까지는 불가능했던 &#x27;웹툰과 가까운 변환&#x27;은 물론 다양한 &#x27;캐릭터 X 배경 스타일 조합&#x27;을 통해 재미있는 결과를 많이 만들어낼 수 있었는데요, 저희의 작업 프로세스를 그림으로 정리하면 아래와 같습니다.</p>
+    <div class="col-12"><figure id="a6071293-0090-4772-ad3d-cccd1420180f" class="image"><a href="asset/IMG_8.png"><img style="width:100%" src="asset/IMG_8.png"/></a><figcaption>전반적인 작업 프로세스</figcaption></figure></div>
+    <p id="bb9d1734-3acf-4c21-92ea-5596c2607526" class="">이제 변환 결과를 같이 보실까요? 너무 재미있는 결과가 많아 어떤 영상을 보여드릴지 고민을 많이 했는데요, 데모 영상을 고르는 회의도 너무 즐거울 정도였습니다.(결과를 게시할 수 있도록 허가해주신 콘텐츠 원작자 분들께 감사드립니다.)</p>
+    <div class="row">
+        <div class="col-md-6"><video controls="" loop="" style="width:100%"><source src="asset/VIDEO_1.mp4#t=0.1" type="video/mp4"/></video></div>
+        <div class="col-md-6"><video controls="" loop="" style="width:100%"><source src="asset/VIDEO_2.mp4#t=0.1" type="video/mp4"/></video></div>
+    </div>
+    <div class="row">
+        <div class="col-md-6"><video controls="" loop="" style="width:100%"><source src="asset/VIDEO_3.mp4#t=0.1" type="video/mp4"/></video></div>
+        <div class="col-md-6"><video controls="" loop="" style="width:100%"><source src="asset/VIDEO_4.mp4#t=0.1" type="video/mp4"/></video></div>
+    </div>
+    <div class="col-md-12"><video controls="" loop="" style="width:100%"><source src="asset/VIDEO_5.mp4#t=0.1" type="video/mp4"/></video></div>
+    <p id="31ef65ff-e4d2-4fce-9a37-628268851f95" class="">지금까지 &lt;WebtoonMe 프로젝트&gt;를 간략하게 설명해드렸습니다. 그렇다면 독자분들은 언제 그리고 어떻게 이 기술을 접할 수 있을지 궁금하실 텐데요, 이와 관련하여 진행 중인 재미있는 기획이 많습니다. 프로젝트에서 확보한 변환 기술은 앞서 언급한 것처럼 과거 &lt;마주쳤다&gt;와 같이 독자의 몰입감을 극대화할 수 있는 기술로 적용 가능한 것은 물론이고요, 웹툰 창작 활동에 도움을 주는 창작 도구로도 활용할 수 있도록 고도화를 진행하고 있습니다. 변환 기술이 창작에는 어떻게 쓰일 수 있을까요?</p><p id="431b8500-ca17-4a5c-bd4b-75f187b8b92a" class="">최근 네이버 웹툰은 업계 선두 주자로서 웹툰 창작 생태계를 확장하기 위해 다양한 노력을 하고 있습니다. 앞서 말씀드린 &lt;웹툰 AI PAINTER&gt; 베타 서비스를 시작으로, 그림을 못 그리더라도 보다 쉽게 웹툰을 창작할 수 있는 기술, 즉 &quot;오토 드로잉&quot;(<a href="https://www.mk.co.kr/news/it/view/2021/10/993693/">관련 기사</a>) 기술을 집중적으로 개발하는 것도 그중 하나입니다. &lt;WebtoonMe 프로젝트&gt;에서 개발하는 변환 기술 역시 오토 드로잉 기술의 일부로, 보다 쉽고 빠르게 웹툰을 제작할 수 있는 기술로 활용될 예정입니다. 즉, 내가 원하는 인물과 배경 사진을 자연스럽게 나만의 웹툰으로 만들 수 있는 기술, 또 다양한 창작 영감을 제공하는 변환 기술이 웹툰 창작에 기여할 수 있기를 기대하고 있습니다.</p>
+    <p id="e340a2fa-1337-427a-a7e0-2787a8222770" class="">감사합니다.</p>
+</div>
+</body>
+</html>
+
