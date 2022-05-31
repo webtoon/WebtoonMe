@@ -677,6 +677,20 @@
 			max-width: 50%;
 			height: auto;
 		  }
+		.button {
+		    position: absolute;
+		    top:30%;
+		    padding: 30px 50px
+		    font-size: 14px;
+		    background-color: #e7e7e7; color: black;
+		    border: 2px solid black
+		  }
+       	        .button:hover {
+		    outline-color: transparent;
+		    outline-style:solid;
+		    box-shadow: 0 0 0 5px black;
+		}
+		
 	</style>
 </head>
 <header>
@@ -685,7 +699,14 @@
 <body>
 <div class="container">
 	<div class="page-body"><h1 id="c4aaa070-fdf0-46a0-aef2-2e7318d561ee" class="">WebtoonMe Project</h1>	
-	</p><p id="183e7cad-cc98-4982-8aa6-4f776fd44bb0" class="">&quot;How would I look like if my photo or video was made into a webtoon?&quot;</p><p id="eb02e0c4-be6f-4e7a-9d56-b50f17c7ee01" class="">&quot;What can the fun combination of &lt;Webtoon x AI&gt; create in the future?&quot;</p>
+	<div class="row">
+		<div class="col-md-8">	
+			<p id="183e7cad-cc98-4982-8aa6-4f776fd44bb0" class="">&quot;How would I look like if my photo or video was made into a webtoon?&quot;</p><p id="eb02e0c4-be6f-4e7a-9d56-b50f17c7ee01" class="">&quot;What can the fun combination of &lt;Webtoon x AI&gt; create in the future?&quot;</p>
+		</div>	
+		<div class="col-md-4">
+			<button onclick="window.location.href='app.html'" type="button" class="button"> Try<br />WebtoonMe </button>
+		</div>
+	</div>
 	<div class="row">
 		<div class="col-md-12"><figure id="2b009f6b-4ac6-44e7-9450-5c7b9e7a41c8" class="image"><a href="asset/IMG_1.png"><img style="width:100%" src="asset/IMG_0.PNG"/></a><figcaption>Examples of various webtoon character conversions</figcaption></div>
 	</div>
