@@ -17,7 +17,7 @@
 </div>
 <br><br>
 <p align="center">:construction: :wrench: :hammer_and_wrench: :construction_worker:</p>
-<p align="center">README coming soon. Stay tuned for further updates!😎</p>
+<p align="center"> Now you can experience the WebtoonMe app for image. Stay tuned for the video version let alone more Webtoon characters!😎</p>
 <br><br>
 <p align="center">
     <img width="800" alt="teaser" src="https://webtoon.github.io/WebtoonMe/asset/IMG_0.PNG"/>
