@@ -17,7 +17,7 @@
 </div>
 <br><br>
 <p align="center">:construction: :wrench: :hammer_and_wrench: :construction_worker:</p>
-<p align="center"> Now you can experience the demo app for image. Stay tuned for the video version let alone more Webtoon characters!😎</p>
+<p align="center"> Now you can experience the demo app for image translation. Stay tuned for the video version let alone more Webtoon characters!😎</p>
 <p align="center"> Also check out our paper, <a href= "https://arxiv.org/abs/2205.12450"> "Cross-Domain Style Mixing for Face Cartoonization" </a>, specifically built for this project. </p>
 <br><br>
 <p align="center">
