@@ -12,7 +12,8 @@
   <br> <br>
   Project&nbsp;Page:&nbsp;
   <a href="https://webtoon.github.io/WebtoonMe/en" target="_blank">English</a> &nbsp<b>|</b>&nbsp
-  <a href="https://webtoon.github.io/WebtoonMe/" target="_blank">한국어</a>
+  <a href="https://webtoon.github.io/WebtoonMe/" target="_blank">한국어</a> &nbsp<b>|</b>&nbsp
+  <a href="https://webtoon.github.io/WebtoonMe/app.html" target="_blank">WebtoonMe demo</a>
 
 </div>
 <br><br>
