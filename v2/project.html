@@ -1,0 +1,288 @@
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style type="text/css">
+  body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight:300;
+    font-size:18px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+    text-align: justify;
+  }
+  h1 {
+    font-weight:300;
+  }
+  h2 {
+    font-weight:300;
+  }
+  .disclaimerbox {
+    background-color: #eee;
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    padding: 20px;
+  }
+  video.header-vid {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+  img.header-img {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+  img.rounded {
+    border: 0px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+  a:link,a:visited
+  {
+    color: #1367a7;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #208799;
+  }
+  td.dl-link {
+    height: 160px;
+    text-align: center;
+    font-size: 22px;
+  }
+  .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+            15px 15px 0 0px #fff, /* The fourth layer */
+            15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+            20px 20px 0 0px #fff, /* The fifth layer */
+            20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+            25px 25px 0 0px #fff, /* The fifth layer */
+            25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+  .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+  }
+  .vert-cent {
+    position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+  hr
+  {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+</style>
+
+
+    <title>WebtoonMe: A Data-Centric Approach for Full-Body Portrait Stylization</title>
+    <meta property="og:image" content="../asset/v2/project/thumbnail.png">
+    <meta property="og:title" content="WebtoonMe">
+  </head>
+
+  <body>
+        <br>
+          <center>
+            <span style="font-size:34px">WebtoonMe: A Data-Centric Approach for Full-Body Portrait Stylization</span><br><br>
+          <table align="center" width="850px">
+            <tbody><tr>
+                    <td align="center" width="250px"></td>
+                    <td align="center" width="200px">
+              <center>
+                  <span style="font-size:20px"><a href="https://github.com/happy-jihye/">Jihye Back*</a></span>
+                </center>
+                </td>
+                    <td align="center" width="230px">
+              <center>
+                <span style="font-size:20px"><a href="https://github.com/jis478/">Seungkwon Kim*</a></span>
+            </center>
+                </td>
+                    <td align="center" width="440px">
+              <center>
+                <span style="font-size:20px"><a href="https://nmhkahn.github.io/">Namhyuk Ahn</a></span> &nbsp;&nbsp;
+                <span style="font-size:13px" align="right" >(* denotes equal contribution)</span>
+                </center>
+                </td>
+
+            </tr>
+        </tbody></table>
+
+
+
+          <table align="center" width="700px">
+            <tbody><tr>
+                    <td align="center" width="100px">
+              <center>
+                    <span style="font-size:20px"></span>
+                </center>
+                </td>
+                    <td align="center" width="250px">
+              <center>
+                    <span style="font-size:20px">NAVER WEBTOON AI</span>
+                </center>
+                </td>
+                    <td align="center" width="100px">
+              <center>
+                    <span style="font-size:20px"></span>
+                </center>
+                </td>
+        </tr></tbody></table>
+          <p class="banner" align="center"><em>SIGGRAPH Asia 2022, Technical Communications.</em></p>
+
+          <table align="center" width="700px">
+            <tbody><tr>
+                <td align="center" width="350px"></td>
+                    <td align="center" width="400px">
+              <center>
+                <span style="font-size:20px"> <a href="https://arxiv.org/abs/2210.10335">[Paper]</a></span>
+                </center>
+                </td>
+                <td align="center" width="400px">
+                  <center>
+                    <span style="font-size:20px">  <a href="">[Demo - Coming Soon]</a></span>
+                    </center>
+                    </td>
+                <td align="center" width="350px"></td>
+                    
+        </tr></tbody></table>
+          </center>
+        <br>
+        <center><td  align="center"> <br> <img src="../asset/v2/project/thumbnail.png" width=1000px></td></center>
+
+        <table align="center" width="1000px" cellpadding="0" cellspacing="0" >
+          <tr>
+
+            <center>
+              <video id="ex-1" width="456px" loop src="../asset/v2/project/ex-1.mp4" autoplay muted>
+                Your browser does not support HTML5 Player 
+              </video>
+              <video id="ex-2" width="544px" loop src="../asset/v2/project/ex-2.mp4" autoplay muted>
+                Your browser does not support HTML5 Player 
+              </video>
+            </center>
+          </tr>
+        </table>
+
+          <br>
+      <hr>
+
+        <center><h2>Abstract</h2></center>
+        Full-body portrait stylization, which aims to translate portrait photography into a cartoon style, has drawn attention recently. However, most methods have focused only on converting face regions, restraining the feasibility of use in real-world applications. A recently proposed two-stage method expands the rendering area to full bodies, but the outputs are less plausible and fail to achieve quality robustness of non-face regions. Furthermore, they cannot reflect diverse skin tones. In this study, we propose a data-centric so- lution to build a production-level full-body portrait stylization system. Based on the two-stage scheme, we construct a novel and advanced dataset prepa- ration paradigm that can effectively resolve the aforementioned problems. Experiments reveal that with our pipeline, high-quality portrait stylization can be achieved without additional losses or architectural changes. <br>
+
+        <hr><center><h2 id="slides_video">Video</h2></center>
+        <p align="center">
+        <iframe width="800" height="450" src="https://www.youtube.com/embed/8r8KELn-XTw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen align="center"></iframe></p><br>
+
+        <hr><center><h2>Method</h2></center>
+
+          <div class="picture_wrapper" align="center">
+
+            <img src="../asset/v2/project/overview.png" width=700px>
+            <p style="text-align: center">Fig.2 An overview of the data preparation stream.</p>
+          </div><br>
+
+          <hr><center><h2 >Results</h2></center>
+
+          <div class="picture_wrapper" align="center">
+
+            <img src="../asset/v2/project/fig4.png" width=700px>
+            <p style="text-align: center">Fig.4 Ablation Study. </p>
+          </div>
+
+    <br>
+
+      <hr>
+        <center><h2>Paper</h2></center><table align="center" width="750" px="">
+
+          <tbody><tr>
+          <td><a href="https://arxiv.org/abs/2210.10335"><img class="layered-paper-big" style="height:175px" src="../asset/v2/project/first_page.jpg"></a></td>
+          <td><span style="font-size:12pt">Jihye Back, Seungkwon Kim, Namhyuk Ahn.</span><br>
+          <b><span style="font-size:12pt">WebtoonMe: A Data-Centric Approach for Full-Body Portrait Stylization</span></b><br>
+          <span style="font-size:12pt">In SIGGRAPH Asia 2022, Technical Communications. <a href="https://arxiv.org/abs/2210.10335">[Paper]</a> </span>
+          </td>
+
+          <br>
+          <table align="center" width="600px">
+            <tbody>
+              <tr>
+                <td>
+                  <center>
+                    <span style="font-size:13pt">
+                      <a href="../asset/v2/project/bibtex.bib" target="_blank">[Bibtex]</a>
+                    </span>
+                  </center>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+      <br>
+
+      <br><hr>
+
+      <div class="citation sec">
+        <h2>Citation</h2>
+        <p>If you find this useful for your research, please use the following.<br>
+          @inproceedings{back2022webtoonme,<br>
+            &emsp;&emsp;title={WebtoonMe: A Data-Centric Approach for Full-Body Portrait Stylization},<br>
+            &emsp;&emsp;author={Back, Jihye and Kim, Seungkwon and  Ahn, Namhyuk}, <br>
+            &emsp;&emsp;journal={arXiv preprint arXiv:2210.10335}, <br>
+            &emsp;&emsp;year={2022} <br>
+          }</p>
+      </div>
+      <br><hr>
+
+<script>
+  const vids = document.querySelectorAll("video");
+
+  vids.forEach(function(v) {
+    v.playbackRate = 0.5;
+  });
+  document.getElementById('ex-1').playbackRate = 1;
+</script>
+
+<script>
+  const vids = document.querySelectorAll("video");
+
+  vids.forEach(function(v) {
+    v.playbackRate = 0.7;
+  });
+  document.getElementById('ex-2').playbackRate = 1;
+</script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-041Y2S24B8"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-041Y2S24B8');
+</script>
+
+</body></html>
